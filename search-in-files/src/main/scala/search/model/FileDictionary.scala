@@ -1,5 +1,7 @@
 package search.model
 
+import search.util.SplitWords
+
 import scala.collection.immutable.HashSet
 import scala.io.Source
 
@@ -9,7 +11,7 @@ object FileDictionary {
 
   def apply(filename: String): FileDictionary = {
     val lines = Source.fromFile(filename).getLines
-    val words = lines.flatMap(line => line.split(Constants.SEPARATORS)).toSeq
+    val words = lines.flatMap(line => SplitWords.splitIntoWords(line)).toSeq
     FileDictionary(filename, HashSet(words: _*))
   }
 }

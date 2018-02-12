@@ -51,7 +51,8 @@ object ConsoleSearch extends ConsoleSearch {
       result match {
         case Right(Action.Quit) => System.exit(0)
         case Left(result) => printResult(result)
-        case Right(Action.NewQuestion) =>
+        case Right(Action.NewQuestion) | Right(_) =>
+
       }
     }
 
